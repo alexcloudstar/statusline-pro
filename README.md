@@ -81,6 +81,8 @@ Any mod or script can add a segment by writing a JSON file to `~/.claude/status-
 
 **What it sends and where.** Nothing. It makes no network calls and sends nothing to the model, so it adds nothing to the model's context or your token use. Everything it reads stays on your machine and is drawn on screen.
 
+**Read files never reach a command.** The mod reads local files (the drop-in `.json` files) and runs a program (`git`), but nothing flows from one to the other. The contents of a drop-in file are cleaned, cut to a length limit, and drawn on screen; they are never passed to `git`, to any other command, to the network or to the model. The only values handed to `git` are the three fixed argument lists listed below and the session's working directory, which comes from the session itself, not from a file.
+
 **What it reads.**
 - Claude Code's own session figures: model, effort, context, rate limits, cost, working directory.
 - The `.json` files in `~/.claude/status-segments/` (or `$CLAUDE_CONFIG_DIR/status-segments/`).
