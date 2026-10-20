@@ -1,6 +1,6 @@
 {
   "name": "statusline-pro",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A configurable status line under the prompt: model, effort, context, rate limits, directory, git, cost and badges from other mods. Settings: /statusline-pro settings.",
   "author": { "name": "Alex Cloudstar", "url": "https://github.com/alexcloudstar" },
   "homepage": "https://github.com/alexcloudstar/statusline-pro",

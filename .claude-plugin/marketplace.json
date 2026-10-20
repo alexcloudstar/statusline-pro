@@ -8,7 +8,7 @@
       "name": "statusline-pro",
       "source": "./",
       "description": "A configurable status line under the Claude Code prompt, with per-segment settings and a drop-in folder for badges from other mods.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": { "name": "Alex Cloudstar", "url": "https://github.com/alexcloudstar" },
       "homepage": "https://github.com/alexcloudstar/statusline-pro",
       "category": "productivity",
