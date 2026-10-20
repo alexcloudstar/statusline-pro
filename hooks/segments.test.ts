@@ -1,6 +1,6 @@
 import { expect, test } from 'claude-code/testing'
 
-import { parseExtra } from './extras'
+import { parseExtra, pickExtraFiles } from './extras'
 import { orderedIds, summaryLine } from './segments'
 import { DEFAULT_SETTINGS, parseSettings } from './settings'
 import type { Settings } from './settings'
@@ -65,6 +65,22 @@ test('drop-in extras render in line and can be hidden', () => {
   expect(line(DEFAULT_SETTINGS).endsWith('deploy v42 live')).toBe(true)
   expect(line(parseSettings({ hidden_segments: 'ext:deploy' }))).not.toContain('deploy')
   expect(line(parseSettings({ order: 'ext:deploy' })).startsWith('deploy v42 live')).toBe(true)
+})
+
+test('pickExtraFiles keeps small json files, sorted, at most 12', () => {
+  const file = (name: string, size = 100, kind = 'file') => ({ name, kind, size })
+  const picked = pickExtraFiles([
+    file('b.json'),
+    file('a.json'),
+    file('notes.txt'),
+    file('big.json', 5_000),
+    file('link.json', 100, 'other'),
+    file('dir.json', 0, 'dir'),
+  ])
+  expect(picked.map(entry => entry.name)).toEqual(['a.json', 'b.json'])
+
+  const many = Array.from({ length: 20 }, (_, index) => file(`s${String(index).padStart(2, '0')}.json`))
+  expect(pickExtraFiles(many)).toHaveLength(12)
 })
 
 test('parseExtra cleans text and rejects bad files', () => {

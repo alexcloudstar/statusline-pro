@@ -5,7 +5,7 @@
 **A configurable status line for Claude Code.**<br>
 Model, effort, context, rate limits, directory, git and cost on one line under the prompt, plus badges from your other mods.
 
-[![Version](https://img.shields.io/badge/version-1.0.0-61afef.svg)](https://github.com/alexcloudstar/statusline-pro/releases)
+[![Version](https://img.shields.io/badge/version-1.0.1-61afef.svg)](https://github.com/alexcloudstar/statusline-pro/releases)
 [![Claude Code mod](https://img.shields.io/badge/Claude%20Code-mod-c678dd.svg)](https://code.claude.com/docs/en/plugins/mods/overview)
 [![License: MIT](https://img.shields.io/badge/license-MIT-98c379.svg)](LICENSE)
 
@@ -77,13 +77,29 @@ Any mod or script can add a segment by writing a JSON file to `~/.claude/status-
 - At most 12 files of 2 KB each. Symlinks are skipped. Control characters are stripped.
 - Segments get the id `ext:<name>`. Use it in `order` and `hidden_segments`, or toggle it in the pane.
 
-## What it reads
+## What it does and touches
 
-- Claude Code's own session figures: model, effort, context, rate limits, cost.
-- `git` in the session's directory (`rev-parse`, `status`, `rev-list`), every 10 seconds and after each turn. Nothing leaves your machine.
-- `~/.claude/status-segments/*.json` under `CLAUDE_CONFIG_DIR`, or `~/.claude`.
+**What it sends and where.** Nothing. It makes no network calls and sends nothing to the model, so it adds nothing to the model's context or your token use. Everything it reads stays on your machine and is drawn on screen.
 
-It sends nothing over the network and adds nothing to the model's context or your token use.
+**What it reads.**
+- Claude Code's own session figures: model, effort, context, rate limits, cost, working directory.
+- The `.json` files in `~/.claude/status-segments/` (or `$CLAUDE_CONFIG_DIR/status-segments/`).
+- Its own settings, through the `/config` rows listed under [Settings](#settings).
+- The environment variables `HOME` and `CLAUDE_CONFIG_DIR`. It sets none.
+
+**Programs it runs.** Only `git`, read-only, in the session's working directory, every 10 seconds and after each turn, to draw the `git` segment:
+- `git rev-parse --abbrev-ref HEAD` for the branch name,
+- `git status --porcelain` to tell whether the tree is dirty,
+- `git rev-list --count @{upstream}..HEAD` for the number of unpushed commits.
+
+**What it changes.** Nothing on disk. It writes no files. The only thing it sets is its own settings fields (`statusline-pro.*`), and only when you click in the settings pane (`/statusline-pro settings`): the same rows you can edit in `/config`.
+
+**What each hook does.**
+- `session.start`: registers the `/statusline-pro` command, loads the first figures, and starts the 10-second refresh of the directory, git state and drop-in segments.
+- `turn.step`, `session.measure`, `session.compact`, `turn.complete`: keep the model, effort, context, limits and cost figures current.
+- `command.run`: `/statusline-pro` hides or shows the line; `/statusline-pro settings` opens the settings pane.
+- `ui.render` for the prompt hint row: draws the status line in place of the hint row.
+- `ui.render` for the settings pane: draws the pane and its buttons.
 
 ## Develop
 
