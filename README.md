@@ -9,11 +9,9 @@ Model, effort, context, rate limits, directory, git and cost on one line under t
 [![Claude Code mod](https://img.shields.io/badge/Claude%20Code-mod-c678dd.svg)](https://code.claude.com/docs/en/plugins/mods/overview)
 [![License: MIT](https://img.shields.io/badge/license-MIT-98c379.svg)](LICENSE)
 
-</div>
+<img src="assets/statusline.png" alt="The status line under the Claude Code prompt: model, effort, context, 5h limit, directory, git branch and cost" width="100%">
 
-```text
-Opus 5.5 · high · ctx ▰▰▱▱▱ 40% · 5h ▰▱▱▱▱ 20% ↻2h41m · ~/app · ⎇ main* ↑2
-```
+</div>
 
 ## Install
 
