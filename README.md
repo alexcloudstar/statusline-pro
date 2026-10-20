@@ -5,7 +5,7 @@
 **A configurable status line for Claude Code.**<br>
 Model, effort, context, rate limits, directory, git and cost on one line under the prompt, plus badges from your other mods.
 
-[![Version](https://img.shields.io/badge/version-1.0.1-61afef.svg)](https://github.com/alexcloudstar/statusline-pro/releases)
+[![Version](https://img.shields.io/badge/version-1.0.2-61afef.svg)](https://github.com/alexcloudstar/statusline-pro/releases)
 [![Claude Code mod](https://img.shields.io/badge/Claude%20Code-mod-c678dd.svg)](https://code.claude.com/docs/en/plugins/mods/overview)
 [![License: MIT](https://img.shields.io/badge/license-MIT-98c379.svg)](LICENSE)
 

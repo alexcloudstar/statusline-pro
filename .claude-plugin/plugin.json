@@ -1,13 +1,12 @@
 {
   "name": "statusline-pro",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A configurable status line under the prompt: model, effort, context, rate limits, directory, git, cost and badges from other mods. Settings: /statusline-pro settings.",
   "author": { "name": "Alex Cloudstar", "url": "https://github.com/alexcloudstar" },
   "homepage": "https://github.com/alexcloudstar/statusline-pro",
   "repository": "https://github.com/alexcloudstar/statusline-pro",
   "license": "MIT",
   "keywords": ["statusline", "status", "mod", "ui", "claude-code-mod"],
-  "types": "./types/index.d.ts",
   "userConfig": {
     "show_model": { "type": "string", "title": "Model", "description": "The active model", "default": "auto", "options": ["auto", "always", "never"] },
     "show_effort": { "type": "string", "title": "Effort", "description": "The reasoning effort level", "default": "auto", "options": ["auto", "always", "never"] },
