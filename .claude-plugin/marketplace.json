@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "statusline-pro",
+  "description": "statusline-pro: a configurable status line for Claude Code.",
+  "owner": { "name": "Alex Cloudstar", "url": "https://github.com/alexcloudstar" },
+  "plugins": [
+    {
+      "name": "statusline-pro",
+      "source": "./",
+      "description": "A configurable status line under the Claude Code prompt, with per-segment settings and a drop-in folder for badges from other mods.",
+      "version": "1.0.0",
+      "author": { "name": "Alex Cloudstar", "url": "https://github.com/alexcloudstar" },
+      "homepage": "https://github.com/alexcloudstar/statusline-pro",
+      "category": "productivity",
+      "license": "MIT"
+    }
+  ]
+}
