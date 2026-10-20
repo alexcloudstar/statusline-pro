@@ -5,6 +5,8 @@ export type Line = Part[]
 
 const LIMIT_GAUGE_WIDTH = 5
 export const PENDING = '-'
+export const PERCENT_GAP = '  '
+const RESET_JOINT = ' · '
 const MAX_DIR_WIDTH = 32
 const MAX_BRANCH_WIDTH = 18
 const CONTEXT_WARN_PCT = 50
@@ -88,9 +90,9 @@ export const limitLine = (label: string, limit: Limit | undefined, now: number):
     { text: `${label} `, dim: true },
     ...gaugeParts(limit.pct, LIMIT_GAUGE_WIDTH, color),
     color === 'claude'
-      ? { text: ` ${Math.round(limit.pct)}%`, dim: true }
-      : { text: ` ${Math.round(limit.pct)}%`, color },
-    ...(eta ? [{ text: ` ↻${eta}`, dim: true }] : []),
+      ? { text: `${PERCENT_GAP}${Math.round(limit.pct)}%`, dim: true }
+      : { text: `${PERCENT_GAP}${Math.round(limit.pct)}%`, color },
+    ...(eta ? [{ text: `${RESET_JOINT}↻  ${eta}`, dim: true }] : []),
   ]
 }
 

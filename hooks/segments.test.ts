@@ -28,7 +28,7 @@ test('parseSettings reads modes, numbers and lists, and falls back on bad values
   expect(settings.costMinUsd).toBe(3)
   expect(settings.order).toEqual(['cost', 'model'])
   expect(settings.hidden).toEqual(['ext:deploy'])
-  expect(parseSettings({}).separator).toBe(' · ')
+  expect(parseSettings({}).separator).toBe('  ·  ')
 })
 
 test('never hides a segment and always forces one past its threshold', () => {

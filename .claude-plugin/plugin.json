@@ -19,7 +19,7 @@
     "show_cost": { "type": "string", "title": "Cost", "description": "auto shows it once the session cost passes the minimum below", "default": "auto", "options": ["auto", "always", "never"] },
     "week_min_pct": { "type": "number", "title": "7d limit threshold (%)", "description": "Usage at which auto shows the 7d limit", "default": 60 },
     "cost_min_usd": { "type": "number", "title": "Cost minimum (USD)", "description": "Session cost at which auto shows the cost", "default": 1 },
-    "separator": { "type": "string", "title": "Separator", "description": "Text between segments", "default": " · " },
+    "separator": { "type": "string", "title": "Separator", "description": "Text between segments", "default": "  ·  " },
     "order": { "type": "string", "title": "Order", "description": "Comma list of segment ids, first to last; the rest follow in default order", "default": "" },
     "hidden_segments": { "type": "string", "title": "Hidden extras", "description": "Comma list of drop-in segment ids to hide (ext:<file name>)", "default": "" }
   }

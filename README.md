@@ -58,7 +58,7 @@ Gauges turn to the theme's warning color from 60% and its error color from 85% (
 | `show_<id>` | `auto` | `auto`, `always` or `never` for each segment above |
 | `week_min_pct` | `60` | usage at which `auto` shows the 7-day limit |
 | `cost_min_usd` | `1` | cost at which `auto` shows the cost |
-| `separator` | ` · ` | text between segments |
+| `separator` | `  ·  ` (a dot with two spaces each side) | text between segments |
 | `order` | empty | comma list of ids, first to last; the rest follow in default order |
 | `hidden_segments` | empty | comma list of drop-in ids to hide |
 

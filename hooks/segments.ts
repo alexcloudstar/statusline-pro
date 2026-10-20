@@ -1,6 +1,6 @@
 import type { Extra, Figures } from '../types'
 
-import { contextColor, formatGit, gaugeParts, limitLine, modelPart, PENDING, shortDir } from './format'
+import { contextColor, formatGit, gaugeParts, limitLine, modelPart, PENDING, PERCENT_GAP, shortDir } from './format'
 import type { Line } from './format'
 import { BUILTIN_IDS, DEFAULT_SETTINGS } from './settings'
 import type { BuiltinId, Mode, Settings } from './settings'
@@ -19,7 +19,7 @@ const contextSegment = ({ figures }: Context): Line => {
   return [
     { text: 'ctx ', dim: true },
     ...gaugeParts(figures.ctxPct, CONTEXT_GAUGE_WIDTH, contextColor(figures.ctxPct)),
-    { text: ` ${Math.round(figures.ctxPct)}%`, bold: true },
+    { text: `${PERCENT_GAP}${Math.round(figures.ctxPct)}%`, bold: true },
   ]
 }
 

@@ -35,7 +35,17 @@ test('summaryLine joins the figures on one line', () => {
   const text = summaryLine(figures, 0)
     .map(part => part.text)
     .join('')
-  expect(text).toBe('Opus 5.5 · high · ctx ▰▰▱▱▱ 40% · 5h - · ~/app')
+  expect(text).toBe('Opus 5.5  ·  high  ·  ctx ▰▰▱▱▱  40%  ·  5h -  ·  ~/app')
+})
+
+test('limit and context segments give the gauge, percent and reset room to breathe', () => {
+  const now = Date.parse('2026-10-20T00:00:00Z')
+  const base = { dir: null, git: null, model: null, effort: null }
+  const text = summaryLine({ ...base, ctxPct: 26, fiveHour: { pct: 5, resetsAt: '2026-10-20T02:30:00Z' } }, now)
+    .map(part => part.text)
+    .join('')
+  expect(text).toContain('ctx ▰▱▱▱▱  26%')
+  expect(text).toContain('5h ▱▱▱▱▱  5% · ↻  2h30m')
 })
 
 test('summaryLine shows 7d and cost only once they matter', () => {

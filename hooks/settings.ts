@@ -25,7 +25,7 @@ export const MODES: readonly Mode[] = ['auto', 'always', 'never']
 
 const DEFAULT_WEEK_MIN_PCT = 60
 const DEFAULT_COST_MIN_USD = 1
-const DEFAULT_SEPARATOR = ' · '
+const DEFAULT_SEPARATOR = '  ·  '
 
 export const DEFAULT_SETTINGS: Settings = {
   modes: Object.fromEntries(BUILTIN_IDS.map(id => [id, 'auto'])) as Record<BuiltinId, Mode>,
